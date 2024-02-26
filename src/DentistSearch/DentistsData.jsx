@@ -1,7 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faFileInvoiceDollar } from '@fortawesome/free-solid-svg-icons';
-import { IconButton } from "@mui/material";
-
 
 const dentists = [ {
     id: 1,
@@ -9,16 +5,25 @@ const dentists = [ {
     apellido: "Pérez",
     dni: "12345678",
     matricula: "987654321",
-    actions: (
-      <>
-        <IconButton aria-label="Detalle">
-        <FontAwesomeIcon icon={faEye} />
-        </IconButton>
-        <IconButton aria-label="Liquidar">
-        <FontAwesomeIcon icon={faFileInvoiceDollar} />
-        </IconButton>
-      </>
-    ),
+    honorarios: [
+      {
+        id: 1,
+        numero: 1,
+        fecha: "2021-01-01",
+        total: 1000,
+      },
+      {
+        id: 2,
+        numero: 2,
+        fecha: "2021-02-01",
+        total: 2000,
+      },
+      {id: 3,
+        numero: 3,
+        fecha: "2021-03-01",
+        total: 3000,}
+    ],
+
   },
   {
     id: 2,
@@ -26,16 +31,24 @@ const dentists = [ {
     apellido: "Gomez",
     dni: "87654321",
     matricula: "123456789",
-    actions: (
-      <>
-        <IconButton aria-label="Detalle">
-        <FontAwesomeIcon icon={faEye} />
-        </IconButton>
-        <IconButton aria-label="Liquidar">
-        <FontAwesomeIcon icon={faFileInvoiceDollar} />
-        </IconButton>
-      </>
-    ),
+    honorarios: [
+      {
+        id: 1,
+        numero: 1,
+        fecha: "2021-01-01",
+        total: 1000,
+      },
+      {
+        id: 2,
+        numero: 2,
+        fecha: "2021-02-01",
+        total: 2000,
+      },
+      {id: 3,
+        numero: 3,
+        fecha: "2021-03-01",
+        total: 3000,}
+    ],
   },
 ];
 
