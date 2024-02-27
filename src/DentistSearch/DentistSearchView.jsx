@@ -5,8 +5,6 @@ import { Col, Container, Row } from 'react-bootstrap';
 import DenstistSearchList from './DentistSearchList';
 
 function DentistSearchView({ setDentists, dentists }) {
-  console.log(dentists);
-
   return (
     <Container fluid >
       <Row>

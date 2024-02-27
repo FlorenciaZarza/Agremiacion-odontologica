@@ -1,4 +1,4 @@
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import dentists from "./DentistsData";
 import { useEffect, useState } from "react";
@@ -8,9 +8,10 @@ import { faEye, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { DataGrid } from "@mui/x-data-grid";
 
 
-function FeesOfDentist() {
+function FeesOfDentist({setDisabled}) {
     const [dentist, setDentist] = useState(null);
     const { id } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const dentist = dentists.find((dentist) => dentist.id === parseInt(id));
@@ -42,7 +43,10 @@ function FeesOfDentist() {
             <IconButton
               color="primary"
               aria-label="Detalle"
-              onClick={() => navigate(`/fee/${id}/${row.id}`)}
+              onClick={() => { 
+                navigate(`/fee/${id}/${row.id}`); 
+                setDisabled(true); // Disable after navigation
+              }}
             >
                 <FontAwesomeIcon icon={faEye} />
             </IconButton>
@@ -54,11 +58,14 @@ function FeesOfDentist() {
 
     <Container fluid>
         <Card>
-        <Card.Title>
-        <h2>Honorarios de {dentist.nombre} {dentist.apellido} <IconButton color="primary" aria-label="Añadir" onClick={() => console.log('Detalle')}>
-            <FontAwesomeIcon icon={faPlus} />
-        </IconButton></h2>
-        </Card.Title>
+        <Card.Header>
+      <h2>Honorarios de {dentist.nombre} {dentist.apellido}  <IconButton color="primary" onClick={() => {navigate(`/addFee/${id}`);
+    setDisabled(false);}}>
+        <FontAwesomeIcon icon={faPlus} />
+      </IconButton></h2>
+     
+    </Card.Header>
+
         <Card.Body>
         <Row>
         <Col>

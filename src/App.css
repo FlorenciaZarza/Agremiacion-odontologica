@@ -13,6 +13,15 @@
   /* Add other card styles as needed */
 }
 
+.mb-3.fill {
+  display: flex; /* Make the tabs container a flexbox */
+  flex-direction: row;  /* Align tabs horizontally */
+}
+
+.tab-content {
+  flex: 1; /* Allow tabs to fill available space */
+}
+
 
 .logo {
   height: 6em;
@@ -52,5 +61,18 @@
 
 body {
   font-size: 1.5em;
+}
+#left-tabs-example {
+  display: flex;
+  flex-direction: row;  /* Arrange tabs horizontally */
+}
+
+#left-tabs-example .nav-tabs {
+  display: flex;
+  /* Other styles for spacing and appearance, as needed */
+}
+
+#left-tabs-example .nav-link {
+  flex: 1;  /* Allow tabs to share available space equally */
 }
 

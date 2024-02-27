@@ -35,7 +35,7 @@ function ActionsCell({ row }) { // Define a functional component
       <IconButton
         color="primary"
         aria-label="Liquidar"
-        onClick={() => navigate(`/liquidar/${row.id}`)}
+        onClick={() => navigate(`/addFee/${row.id}`)}
       >
         <FontAwesomeIcon icon={faFileInvoiceDollar} />
       </IconButton>
