@@ -28,6 +28,11 @@ function AddDentistFee({disabled}) {
     }
   };
   
+    const handleReturn = () => {
+        if (window.confirm('¿Está seguro de que desea volver?')) {
+            navigate(-1); // Navigate back one level
+          }
+    };
 
 
   CustomTabPanel.propTypes = {
@@ -78,10 +83,17 @@ function AddDentistFee({disabled}) {
         <DentistPaymentsTable disabled={disabled}/>
       </CustomTabPanel>
       <Box sx={{ display: 'flex', justifyContent: 'flex-end'}}>
-  <Button variant="contained" color="primary" size="m" sx={{marginRight: '10px'}} onClick={handleCancel}>
-  Cancelar 
-  </Button>
-    <Button variant="contained" color="primary" disabled={!sendButton} onClick={()=> navigate(`/congratulations`)}>
+      <Button
+  variant="contained"
+  color="primary"
+  size="m"
+  sx={{ marginRight: "10px" }}
+  onClick={() => (disabled ? handleReturn() : handleCancel())} // Arrow function for conditional execution
+>
+  {disabled ? "Volver" : "Cancelar"}
+</Button>
+
+    <Button variant="contained" color="primary" disabled={!sendButton || disabled} onClick={()=> navigate(`/congratulations`)}>
         Enviar
         </Button>
 </Box>

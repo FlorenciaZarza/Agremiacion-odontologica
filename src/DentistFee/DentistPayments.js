@@ -5,6 +5,7 @@ const dentistPayments = [
         periodo: "10-2021",
         fechaVencimiento: "2021-10-01",
         total: 1000,
+        checked: false,
     },
     {
         id: 2,
@@ -12,6 +13,7 @@ const dentistPayments = [
         periodo: "11-2021",
         fechaVencimiento: "2021-11-01",
         total: 2000,
+        checked: true,
     },
     {
         id: 3,
@@ -19,6 +21,7 @@ const dentistPayments = [
         periodo: "12-2021",
         fechaVencimiento: "2021-12-01",
         total: 3000,
+        checked : false,
     },
     {
         id: 4,
@@ -26,6 +29,7 @@ const dentistPayments = [
         periodo: "01-2022",
         fechaVencimiento: "2022-01-01",
         total: 3000,
+        checked: false,
     },
     {
         id: 5,
@@ -33,6 +37,7 @@ const dentistPayments = [
         periodo: "02-2022",
         fechaVencimiento: "2022-02-01",
         total: 3000,
+        checked: false,
     },
     {
         id: 6,
@@ -40,6 +45,7 @@ const dentistPayments = [
         periodo: "03-2022",
         fechaVencimiento: "2022-03-01",
         total: 3000,
+        checked: false,
     },
     {
         id: 7,
@@ -47,6 +53,7 @@ const dentistPayments = [
         periodo: "04-2022",
         fechaVencimiento: "2022-04-01",
         total: 3000,
+        checked: true,
     },
 ];
 

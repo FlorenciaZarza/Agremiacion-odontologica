@@ -21,32 +21,53 @@ function ActionsCell({ row }) { // Define a functional component
     );
   }
 
-function InvoicesTable({disabled}) {
+  function InvoicesTable({ disabled }) {
     const columns = [
-        { field: "numero", headerName: "Número", width: 150 },
-        { field: "fecha", headerName: "Fecha", width: 150 },
-        { field: "total", headerName: "Monto", width: 150 },
-        {
-            field: "detail",
-            headerName: "Detalle",
-            width: 140,
-            renderCell: (params) => {
-              return <ActionsCell row={params.row} />; // Render a separate component
-            },
-          },
-          {field: "select",
-            headerName: "Seleccionar",
-            width: 140,
-            renderCell: (params) => {
-              return <Checkbox value="remember" color="primary" disabled={disabled}/>
-            }
-        }
+      { field: "numero", headerName: "Número", width: 150 },
+      { field: "fecha", headerName: "Fecha", width: 150 },
+      { field: "total", headerName: "Monto", width: 150 },
+      {
+        field: "detail",
+        headerName: "Detalle",
+        width: 140,
+        renderCell: (params) => {
+          return <ActionsCell row={params.row} />;
+        },
+      },
+      {
+        field: "checked",
+        headerName: "Seleccionar",
+        width: 140,
+        renderCell: (params) => {
+          if (disabled) {
+            const isChecked = params.value && params.value;
+  
+            return (
+              <Checkbox
+                checked={isChecked}
+                value="remember"
+                color="primary"
+                disabled={true}
+              />
+            );
+          } else {
+            // Render the normal checkbox when not disabled
+            return (
+              <Checkbox
+                value="remember"
+                color="primary"
+                disabled={disabled}
+              />
+            );
+          }
+        },
+      },
     ];
-
-
-  return (
-    <DataGrid rows={dentistsInvoice} columns={columns} pageSize={5} />
-  )
-}
-
-export default InvoicesTable
+  
+    return (
+      <DataGrid rows={dentistsInvoice} columns={columns} pageSize={5} />
+    );
+  }
+  
+  export default InvoicesTable;
+  

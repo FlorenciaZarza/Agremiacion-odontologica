@@ -9,13 +9,34 @@ function DentistPaymentsTable({disabled}) {
         { field: "fecha", headerName: "Fecha Vencimiento", width: 150 },
         { field: "total", headerName: "Monto", width: 150}
         ,
-          {field: "select",
+        {
+            field: "checked",
             headerName: "Seleccionar",
             width: 140,
             renderCell: (params) => {
-              return <Checkbox value="remember" color="primary" disabled={disabled} />
-            }
-        }
+              if (disabled) {
+                const isChecked = params.value && params.value;
+      
+                return (
+                  <Checkbox
+                    checked={isChecked}
+                    value="remember"
+                    color="primary"
+                    disabled={true}
+                  />
+                );
+              } else {
+                // Render the normal checkbox when not disabled
+                return (
+                  <Checkbox
+                    value="remember"
+                    color="primary"
+                    disabled={disabled}
+                  />
+                );
+              }
+            },
+          },
     ];
   return (
     <DataGrid rows={dentistPayments} columns={columns} pageSize={5} />

@@ -1,8 +1,8 @@
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import dentists from "./DentistsData";
 import { useEffect, useState } from "react";
-import { IconButton } from "@mui/material";
+import { Box, IconButton, Button} from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { DataGrid } from "@mui/x-data-grid";
@@ -34,6 +34,12 @@ function FeesOfDentist({setDisabled}) {
             },
           },
     ];
+
+    const handleReturn = () => {
+      if (window.confirm('¿Está seguro de que desea volver?')) {
+          navigate(-1); // Navigate back one level
+        }
+  };
 
     function ActionsCell({ row }) { // Define a functional component
         const navigate = useNavigate(); // Use hook within the component
@@ -72,6 +78,16 @@ function FeesOfDentist({setDisabled}) {
         <DataGrid rows={dentist.honorarios} columns={columns} pageSize={5} />
         </Col>
         </Row>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end'}}>
+        <Button
+  variant="contained"
+  color="primary"
+  size="m"
+  sx={{ marginRight: "10px", marginTop: "10px"}}
+  onClick={() => ( handleReturn())} // Arrow function for conditional execution
+>
+  Volver
+</Button></Box>
         </Card.Body>
         </Card>
 

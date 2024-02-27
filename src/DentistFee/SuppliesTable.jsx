@@ -10,14 +10,35 @@ function SuppliesTable({disabled}) {
         { field: "fecha", headerName: "Fecha", width: 150 },
         { field: "total", headerName: "Importe Total", width: 150}
         ,
-          {field: "select",
+        {
+            field: "checked",
             headerName: "Seleccionar",
             width: 140,
             renderCell: (params) => {
-              return <Checkbox value="remember" color="primary" disabled={disabled} />
-            }
-        }
-    ];
+              if (disabled) {
+                const isChecked = params.value && params.value;
+      
+                return (
+                  <Checkbox
+                    checked={isChecked}
+                    value="remember"
+                    color="primary"
+                    disabled={true}
+                  />
+                );
+              } else {
+                // Render the normal checkbox when not disabled
+                return (
+                  <Checkbox
+                    value="remember"
+                    color="primary"
+                    disabled={disabled}
+                  />
+                );
+              }
+            },
+          },
+];
 
 
   return (
